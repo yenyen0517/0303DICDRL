@@ -1,7 +1,8 @@
 :root {
     --bg-color: #050505;
     --text-color: #ffffff;
-    --accent-color: #a855f7; /* Purple accent from Adelina style */
+    --accent-color: #a855f7;
+    /* Purple accent from Adelina style */
     --secondary-color: #6b7280;
     --font-primary: 'Outfit', sans-serif;
 }
@@ -38,7 +39,7 @@ body {
 }
 
 header {
-    padding: 2rem 4rem;
+    padding: clamp(1rem, 5vw, 2rem) clamp(1rem, 8vw, 4rem);
     z-index: 10;
 }
 
@@ -46,24 +47,26 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem;
 }
 
 .logo {
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
     font-weight: 700;
     letter-spacing: 2px;
     color: var(--accent-color);
 }
 
 .time-container {
-    font-size: 1.2rem;
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
     font-weight: 300;
     background: rgba(255, 255, 255, 0.05);
-    padding: 0.5rem 1.5rem;
+    padding: 0.4rem clamp(0.8rem, 3vw, 1.5rem);
     border-radius: 50px;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
 }
 
 main {
@@ -71,36 +74,40 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 4rem;
+    padding: 0 clamp(1rem, 8vw, 4rem);
 }
 
 .hero {
     width: 100%;
     max-width: 1200px;
+    text-align: left;
+    /* Default to left for larger screens */
 }
 
 h1 {
-    font-size: 8rem;
+    font-size: clamp(3rem, 12vw, 8rem);
+    /* Fluid typography */
     font-weight: 700;
     line-height: 0.9;
     text-transform: uppercase;
     margin-bottom: 1rem;
     background: linear-gradient(to right, #fff, var(--accent-color));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .subtitle {
-    font-size: 1.5rem;
+    font-size: clamp(0.9rem, 2.5vw, 1.5rem);
     font-weight: 300;
-    letter-spacing: 5px;
+    letter-spacing: clamp(2px, 1vw, 5px);
     text-transform: uppercase;
     color: var(--secondary-color);
     margin-left: 0.5rem;
 }
 
 .divider {
-    width: 100px;
+    width: clamp(50px, 15vw, 100px);
     height: 2px;
     background-color: var(--accent-color);
     margin-top: 2rem;
@@ -108,13 +115,13 @@ h1 {
 }
 
 .hero:hover .divider {
-    width: 200px;
+    width: clamp(100px, 25vw, 200px);
 }
 
 footer {
-    padding: 2rem 4rem;
+    padding: 2rem clamp(1rem, 8vw, 4rem);
     text-align: center;
-    font-size: 0.8rem;
+    font-size: clamp(0.7rem, 1.5vw, 0.8rem);
     color: var(--secondary-color);
     letter-spacing: 1px;
 }
@@ -130,21 +137,45 @@ footer {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* Responsive Overrides for smaller devices */
+@media (max-width: 640px) {
+    nav {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .hero {
+        text-align: center;
+    }
+
+    .subtitle {
+        margin-left: 0;
+    }
+
+    .divider {
+        margin: 2rem auto 0;
+    }
+}
+
+@media (max-height: 600px) {
+    header {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    footer {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
     h1 {
-        font-size: 4rem;
-    }
-    header, main, footer {
-        padding: 2rem;
-    }
-    .time-container {
-        font-size: 1rem;
+        font-size: clamp(2.5rem, 10vh, 5rem);
     }
 }

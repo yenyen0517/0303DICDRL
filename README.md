@@ -4,6 +4,7 @@ A sleek, modern, and high-contrast personal web page inspired by the premium 'Ad
 
 ## Features
 
+- **Enhanced RWD (Responsive Web Design)**: Implemented fluid typography with `clamp()` and refined media queries for seamless viewing across all devices (mobile, tablet, desktop).
 - **Adelina-Inspired Design**: A professional, minimalist dark theme with sleek purple accents and abstract geometric patterns.
 - **Dynamic Clock**: a real-time digital clock integrated into the navigation bar.
 - **Micro-Animations**: 
