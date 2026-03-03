@@ -4,6 +4,8 @@ A premium, high-performance personal web page meticulously crafted with a dark, 
 
 **[🌐 Live Demo](https://yenyen0517.github.io/0303DICDRL/)**
 
+![Homepage Preview](preview.png)
+
 ---
 
 ## ✨ Key Features
